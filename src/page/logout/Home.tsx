@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { MAIN_IMG } from '../../common/constants/constants';
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -10,18 +10,18 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Contents = styled.div`
+export const Contents = styled.div`
   width: 80%;
   height: 100%;
 `;
 
-const Title = styled.div`
+export const Title = styled.div`
   width: 100%;
   height: 100%;
   margin-bottom: 20px;
 `;
 
-const TitleText = styled.h2`
+export const TitleText = styled.h2`
   font-weight: bold;
   font-size: ${({ theme }) => theme.TEXT_SIZE.LARGE};
   margin: 0;
