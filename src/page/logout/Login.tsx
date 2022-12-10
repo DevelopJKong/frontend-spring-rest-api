@@ -1,9 +1,9 @@
-import React from 'react'
+import styled from 'styled-components';
+
+const Container = styled.div``;
 
 const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+  return <Container>Login</Container>;
+};
 
-export default Login
+export default Login;

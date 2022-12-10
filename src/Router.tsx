@@ -35,7 +35,7 @@ const Router = () => {
   const boardRoutes = [
     {
       path: BASIC_RENDER_COMPONENT,
-      component: <div></div>,
+      component: <div>1</div>,
     },
   ];
 
