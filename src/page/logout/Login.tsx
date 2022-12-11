@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
@@ -17,11 +18,16 @@ const Title = styled(HomeTitle)``;
 const TitleText = styled(HomeTitleText)``;
 const Content = styled.div``;
 const Form = styled.form``;
+const InputWrapper = styled.div`
+   padding: 20px;
+`;
 const Input = styled.input``;
+const Button = styled.button``;
 
 const Login = () => {
    const [errorMessage, setErrorMessage] = useState('');
-
+   const [userEmail, setUserEmail] = useState('');
+   const [userPassword, setUserPassword] = useState('');
    const {
       register,
       handleSubmit,
@@ -33,7 +39,26 @@ const Login = () => {
    });
 
    const onValid = async (data: IForm): Promise<void> => {
-      const { email } = data;
+      const { email, password } = data;
+      console.log(email);
+      try {
+         const {
+            data: { data: userData },
+         } = await axios({
+            url: 'http://localhost:8080/user/login',
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            data: {
+               email,
+               password,
+            },
+         });
+
+         console.log(userData.ok);
+         console.log(userData.token);
+      } catch (error) {
+         console.log(error);
+      }
    };
    return (
       <Container>
@@ -70,6 +95,7 @@ const Login = () => {
                         },
                      })}
                   />
+                  <Button>로그인</Button>
                </Form>
             </Content>
          </Contents>
